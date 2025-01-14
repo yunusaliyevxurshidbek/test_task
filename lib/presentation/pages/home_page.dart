@@ -41,12 +41,12 @@ class _HomePageState extends State<HomePage> {
       body: SingleChildScrollView(
         child: Column(children: [
           Container(
-            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+            padding: const EdgeInsets.symmetric( vertical: 12),
             child: Column(
               children: [
                 //! Top part of calendar page:
                 Padding(
-                  padding: const EdgeInsets.only(top: 44),
+                  padding: const EdgeInsets.only(top: 44,left: 12,right: 12),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -75,7 +75,11 @@ class _HomePageState extends State<HomePage> {
                     ],
                   ),
                 ),
+
+
                 const SizedBox(height: 15),
+
+
                 //! Calendar:
                 TableCalendar(
                   firstDay: DateTime(2020, 1, 1),
@@ -205,69 +209,83 @@ class _HomePageState extends State<HomePage> {
                   daysOfWeekHeight: 50,
                   rowHeight: 60,
                 ),
+
+
                 const SizedBox(height: 20),
+
+
                 //! Bottom_texts:
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Date: $formattedDate",
-                          style: const TextStyle(
-                            color: Colors.black,
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        Text(
-                          "Cycle Day 12 - Follicular Phase",
-                          style: TextStyle(
-                            color: Colors.grey[700],
-                            fontSize: 12,
-                          ),
-                        ),
-                      ],
-                    ),
-                    //! Edit_button:
-                    ElevatedButton(
-                      onPressed: () {},
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.white,
-                        side: BorderSide(
-                          color: Colors.grey.withOpacity(0.1),
-                          width: 1,
-                        ),
-                      ),
-                      child: Row(
-                        children: const [
-                          Icon(
-                            Icons.water_drop,
-                            size: 15,
-                            color: Colors.pinkAccent,
-                          ),
-                          SizedBox(
-                            width: 10,
+
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 24),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            formattedDate,
+                            style: const TextStyle(
+                              color: Colors.black,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                           Text(
-                            "Edit",
+                            "Cycle Day 12 - Follicular Phase",
                             style: TextStyle(
-                              color: Colors.black,
+                              color: Colors.grey[700],
+                              fontSize: 12,
                             ),
                           ),
                         ],
                       ),
-                    )
-                  ],
+                      //! Edit_button:
+                      ElevatedButton(
+                        onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.white,
+                          side: BorderSide(
+                            color: Colors.grey.withOpacity(0.1),
+                            width: 1,
+                          ),
+                        ),
+                        child: Row(
+                          children: const [
+                            Icon(
+                              Icons.water_drop,
+                              size: 15,
+                              color: Colors.pinkAccent,
+                            ),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Text(
+                              "Edit",
+                              style: TextStyle(
+                                color: Colors.black,
+                              ),
+                            ),
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
                 ),
               ],
             ),
           ),
           const SizedBox(height: 10),
+
+
           //! Line:
           Container(height: 1, color: Colors.grey[200]),
+
+
           const SizedBox(height: 20),
+
+
           //! bottom_part:
           Row(
             children: [
